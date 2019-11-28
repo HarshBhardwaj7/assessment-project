@@ -1,0 +1,181 @@
+<html>
+<head>
+	<style>
+b{
+	margin-left:50px;
+}
+button{
+
+	    margin-left:50px;
+}
+body{
+	background-image: url('bg.jpg');
+	background-size: cover;
+	background-position: center;
+	color:white;
+}
+#main{
+	float:right;
+	color: white;
+	display: inline-block;
+	font-family:GothicG;
+}
+#main li a{
+	color:#fff;
+	padding:4px 8px;
+	border:1px solid #fff;
+
+
+}
+#main li a:hover{
+	background-color: #fff;
+	color:#000;
+}
+
+
+</style>
+</head>
+
+<body>
+<div id="main">
+	<ul>
+		<li><h1><a href="https://indianexpress.com/section/sports/">Sports</a></h1></li>
+		<li><h1><a href="https://www.news18.com/politics/">Politics</a></h1></li>
+		<li><h1><a href="https://www.news18.com/stocks/indian-stocks-market-live/">ShareMartket</a></h1></li>
+		<li><h1><a href="https://www.xe.com/currencyconverter/">Currency</a></h1></li>
+	</ul>
+</div>
+
+
+ <font size="8" color="white"><b>The Guardian News</b>
+ </font>
+ <br>
+ <br>
+ <br>
+ 
+
+
+<button type="button" onclick="loadDoc()">Click here for the News</button>
+
+<a href="" id="demog"></a>
+<br>
+
+<font size="8" color="white"><b>The News API</b>
+ </font>
+ <br>
+ <br>
+ <br>
+<button type="button" onclick="loadDoc1()">Click here for Wallstreet News</button>
+
+<br>
+<br>
+<br>
+<font size="8" color="white"><b>New York Times</b>
+ </font>
+<br>
+<br>
+<br>
+<button type="button" onclick="loadDoc2()">Click for NewYork times</button>
+<br>
+<br>
+<br>
+<font size="8" color="white"><b>The Nasa News</b>
+ </font>
+ <br>
+<br>
+<br>
+<button type="button" onclick="loadDoc3()">Click here for Nasa News</button>
+<div id="demo"></div>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       
+ 
+     var data=JSON.parse(this.responseText);
+     console.log(data);
+     for(var i=0;i<8;i++)
+     {
+     		var p=document.createElement('p');
+           document.getElementById("demo").appendChild(p);
+           p.innerHTML=data.response.results[i].webTitle;
+     }
+
+    }
+  };
+  xhttp.open("GET", " https://content.guardianapis.com/search?api-key=a77a0b11-aa28-4b32-bce7-070e4475cb72", true);
+  xhttp.send();
+}
+
+function loadDoc1() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     var data=JSON.parse(this.responseText);
+     console.log(data);
+     for(var i=0;i<18;i++)
+     {
+     		var p=document.createElement('p');
+           document.getElementById("demo").appendChild(p);
+           p.innerHTML=data.articles[i].title;
+     }
+
+    }
+  };
+  xhttp.open("GET", "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=8e6fca51bcef4dc38396a7958be281e0", true);
+  xhttp.send();
+}
+function loadDoc2() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var data=JSON.parse(this.responseText);
+     console.log(data);
+     for(var i=0;i<18;i++)
+     {
+     		var p=document.createElement('p');
+           document.getElementById("demo").appendChild(p);
+           p.innerHTML=data.results[i].book_title;
+     }
+
+    }
+  };
+  xhttp.open("GET", "https://api.nytimes.com/svc/books/v3/reviews.json?author=Stephen+King&api-key=QSt9tnwGEdAmmrufBKl4qtSn3nWkrB1v", true);
+  xhttp.send();
+}
+
+function loadDoc3() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var data=JSON.parse(this.responseText);
+     console.log(data);
+   
+     		var p=document.createElement('p');
+           document.getElementById("demo").appendChild(p);
+           p.innerHTML=data.explanation;
+
+     }
+
+    
+  };
+  xhttp.open("GET", "https://api.nasa.gov/planetary/apod?api_key=QfkacrxI14Tt7A3y7DA6vmN2OjV2lESU19V697sQ", true);
+  xhttp.send();
+}
+ 
+
+
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+
+</html>
+
