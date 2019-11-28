@@ -88,6 +88,7 @@ body{
 <div id="demo"></div>
 <script>
 function loadDoc() {
+	document.getElementById("demo").innerHTML="";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -109,6 +110,7 @@ function loadDoc() {
 }
 
 function loadDoc1() {
+	document.getElementById("demo").innerHTML="";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -127,6 +129,7 @@ function loadDoc1() {
   xhttp.send();
 }
 function loadDoc2() {
+	document.getElementById("demo").innerHTML="";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -146,6 +149,7 @@ function loadDoc2() {
 }
 
 function loadDoc3() {
+	document.getElementById("demo").innerHTML="";
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
